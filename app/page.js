@@ -221,27 +221,10 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="card cta-card">
-        <h2>Turn tattoo estimator traffic into leads</h2>
-        <div className="cta-grid">
-          <article>
-            <h3>Save estimate CTA</h3>
-            <p>Capture email before showing a downloadable tattoo estimate summary.</p>
-          </article>
-          <article>
-            <h3>Inquiry template CTA</h3>
-            <p>Offer a copy-ready message users can send to local studios immediately.</p>
-          </article>
-          <article>
-            <h3>Location pages</h3>
-            <p>Scale SEO with city-specific pages such as tattoo prices in Los Angeles, London, or New York.</p>
-          </article>
-        </div>
-        <div className="cta-actions">
-          <a className="button" href="#result">Try the estimator</a>
-          <a className="button secondary" href="mailto:hello@example.com">Get MVP build help</a>
-        </div>
-        <p className="subtle" style={{ marginTop: 14 }}>Current pricing is rule-based for MVP validation. Production-grade accuracy needs market data, artist rate benchmarks, and image-aware complexity scoring.</p>
+      <section className="card note-card">
+        <h2>Important note about tattoo estimates</h2>
+        <p className="subtle">This tattoo cost calculator gives a realistic starting range, not a final quote. Actual tattoo pricing depends on the artist, reference quality, exact placement, skin conditions, custom design time, and shop minimums in your market.</p>
+        <p className="subtle">For the most accurate quote, send your preferred size, placement, style references, and budget range to the artist before booking.</p>
       </section>
     </main>
   );
