@@ -1,8 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import { useMemo, useState } from 'react';
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tatcost.online';
+import { seoPages, siteUrl } from './seo-pages';
 
 const PRICING = {
   base: 120,
@@ -294,6 +294,22 @@ export default function Page() {
             <h3>Tattoo artist hourly rate</h3>
             <p>Hourly tattoo pricing varies by city, shop positioning, and artist reputation, so the same concept can quote very differently across studios.</p>
           </article>
+        </div>
+      </section>
+
+      <section className="card note-card">
+        <h2>Popular tattoo cost guides</h2>
+        <p className="section-intro">These dedicated landing pages are built for more specific tattoo pricing searches, not just the homepage head term.</p>
+        <div className="guide-grid">
+          {seoPages.map((page) => (
+            <article key={page.slug}>
+              <h3>{page.h1}</h3>
+              <p>{page.description}</p>
+              <Link href={`/${page.slug}`} className="button" style={{ marginTop: 12 }}>
+                Read guide
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
 
