@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from 'react';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tatcost.online';
+
 const PRICING = {
   base: 120,
   size: { tiny: 0, small: 60, medium: 180, large: 380, xl: 900 },
@@ -69,14 +71,40 @@ function estimate(data) {
   return { low, high, sessions: sessionEstimate(adjusted), factors: buildFactors(data), inquiry: buildInquiryTemplate(data, low, high) };
 }
 
+const faqItems = [
+  {
+    question: 'Does shop minimum affect small tattoos?',
+    answer: 'Yes. Tiny tattoos are often dominated by the studio minimum charge rather than pure design time.'
+  },
+  {
+    question: 'Hourly vs flat rate?',
+    answer: 'Simple work is often quoted flat. Complex or custom work is commonly estimated by hourly range or session count.'
+  },
+  {
+    question: 'Is tipping included?',
+    answer: 'No. This estimator shows the tattoo quote itself. Tip and aftercare are separate budget items.'
+  },
+  {
+    question: 'How much does a small tattoo usually cost?',
+    answer: 'Many small tattoos still end up near the shop minimum, so size alone does not always make the quote cheap.'
+  },
+  {
+    question: 'Why do tattoo prices vary so much by city and artist?',
+    answer: 'Tattoo prices change with shop overhead, local demand, artist reputation, and the complexity of the design and placement.'
+  }
+];
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    { '@type': 'Question', name: 'Does shop minimum affect small tattoos?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Tiny tattoos are often dominated by the studio minimum charge rather than pure design time.' } },
-    { '@type': 'Question', name: 'Hourly vs flat rate?', acceptedAnswer: { '@type': 'Answer', text: 'Simple work is often quoted flat. Complex or custom work is commonly estimated by hourly range or session count.' } },
-    { '@type': 'Question', name: 'Is tipping included?', acceptedAnswer: { '@type': 'Answer', text: 'No. This estimator shows the tattoo quote itself. Tip and aftercare are separate budget items.' } }
-  ]
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer
+    }
+  }))
 };
 
 const appSchema = {
@@ -85,6 +113,7 @@ const appSchema = {
   name: 'Tattoo Price Estimator',
   applicationCategory: 'UtilitiesApplication',
   operatingSystem: 'Web',
+  url: `${siteUrl}/`,
   description:
     'Free tattoo cost calculator that estimates tattoo pricing by size, placement, style, color, detail level, city, and artist tier.',
   offers: {
@@ -94,6 +123,32 @@ const appSchema = {
   }
 };
 
+const webpageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Tattoo Price Estimator',
+  url: `${siteUrl}/`,
+  description:
+    'Free tattoo price estimator and tattoo cost calculator for size, placement, style, color, detail, city, and artist tier.',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: `${siteUrl}/`
+      }
+    ]
+  }
+};
+
+const jumpLinks = [
+  { href: '#calculator', label: 'Tattoo cost calculator' },
+  { href: '#pricing-guide', label: 'Tattoo pricing guide' },
+  { href: '#faq', label: 'Tattoo cost FAQ' }
+];
+
 export default function Page() {
   const [form, setForm] = useState(defaults);
   const result = useMemo(() => estimate(form), [form]);
@@ -102,6 +157,7 @@ export default function Page() {
     <main className="page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webpageSchema) }} />
 
       <section className="hero card">
         <div>
@@ -113,6 +169,13 @@ export default function Page() {
             <li>Estimated session count</li>
             <li>Clear explanation of the biggest pricing drivers</li>
           </ul>
+          <div className="hero-points">
+            {jumpLinks.map((link) => (
+              <a key={link.href} href={link.href} className="button" style={{ marginRight: 12, marginBottom: 12 }}>
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
         <div className="hero-stat">
           <div className="stat-label">Built for</div>
@@ -121,10 +184,28 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="grid">
+      <section className="card info-card">
+        <h2>How to use this tattoo price estimator</h2>
+        <div className="info-grid">
+          <article>
+            <h3>1. Choose your tattoo size</h3>
+            <p>Small tattoos often sit near a studio minimum, while large tattoos and sleeves scale with artist time, shading, and session count.</p>
+          </article>
+          <article>
+            <h3>2. Adjust placement and style</h3>
+            <p>Ribs, hands, neck, realism, and dense detail all push quotes upward because they add complexity and time.</p>
+          </article>
+          <article>
+            <h3>3. Compare the estimate with local reality</h3>
+            <p>City rates and artist tier can change tattoo prices fast, so use the estimate as a realistic starting range before asking a shop for a final quote.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="grid" id="calculator">
         <section className="card form-card">
-          <h2>Estimate Tattoo Cost</h2>
-          <p className="section-intro">Choose your tattoo size, placement, style, and artist level to get a fast tattoo cost estimate.</p>
+          <h2>Tattoo Cost Calculator</h2>
+          <p className="section-intro">Choose your tattoo size, placement, style, color, detail level, city pricing, and artist tier to get a fast tattoo cost estimate.</p>
           <div className="form-grid">
             {Object.entries(LABELS).map(([field, options]) => (
               <label key={field}>
@@ -157,11 +238,11 @@ export default function Page() {
           </div>
 
           <div className="result-section">
-            <h3>Best conversion ideas</h3>
+            <h3>Best next steps</h3>
             <ul>
-              <li>Save this tattoo estimate</li>
-              <li>Get a copy-ready tattoo inquiry template</li>
-              <li>Compare tattoo prices by city or artist tier</li>
+              <li>Save this tattoo estimate before messaging studios</li>
+              <li>Use the inquiry template when you ask for a tattoo quote</li>
+              <li>Compare tattoo prices by city and artist tier before booking</li>
             </ul>
           </div>
         </section>
@@ -185,8 +266,9 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="card guide-card">
+      <section className="card guide-card" id="pricing-guide">
         <h2>Tattoo pricing guide for common searches</h2>
+        <p className="section-intro">These are the high-intent searches people use before they ask for a tattoo quote. This page is designed to answer those questions fast.</p>
         <div className="guide-grid">
           <article>
             <h3>Small tattoo cost</h3>
@@ -200,24 +282,30 @@ export default function Page() {
             <h3>Fine line tattoo cost</h3>
             <p>Fine line work can look simple, but a clean result often requires a more experienced artist and careful execution.</p>
           </article>
+          <article>
+            <h3>Forearm tattoo cost</h3>
+            <p>Forearm tattoos are usually easier to price than ribs or hands, but style, detail, and artist tier still change the final quote a lot.</p>
+          </article>
+          <article>
+            <h3>Color tattoo cost</h3>
+            <p>Color tattoos usually cost more than black ink tattoos because layering, saturation, and session length all increase.</p>
+          </article>
+          <article>
+            <h3>Tattoo artist hourly rate</h3>
+            <p>Hourly tattoo pricing varies by city, shop positioning, and artist reputation, so the same concept can quote very differently across studios.</p>
+          </article>
         </div>
       </section>
 
-      <section className="card faq-card">
-        <h2>FAQ</h2>
+      <section className="card faq-card" id="faq">
+        <h2>Tattoo cost FAQ</h2>
         <div className="faq-list">
-          <article>
-            <h3>Does shop minimum affect small tattoos?</h3>
-            <p>Yes. Tiny tattoos are often dominated by the studio minimum charge rather than pure design time.</p>
-          </article>
-          <article>
-            <h3>Hourly vs flat rate?</h3>
-            <p>Simple work is often quoted flat. Complex or custom work is commonly estimated by hourly range or session count.</p>
-          </article>
-          <article>
-            <h3>Is tipping included?</h3>
-            <p>No. This estimator shows the tattoo quote itself. Tip and aftercare are separate budget items.</p>
-          </article>
+          {faqItems.map((item) => (
+            <article key={item.question}>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </article>
+          ))}
         </div>
       </section>
 

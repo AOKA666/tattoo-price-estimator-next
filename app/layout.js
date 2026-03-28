@@ -1,8 +1,8 @@
 import './globals.css';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tatcost.online';
 const siteName = 'Tattoo Price Estimator';
-const defaultTitle = 'Tattoo Price Estimator | Free Tattoo Cost Calculator by Size, Placement, and Style';
+const defaultTitle = 'Tattoo Price Estimator | Free Tattoo Cost Calculator';
 const defaultDescription =
   'Use this free tattoo price estimator to calculate a realistic tattoo cost range by size, placement, style, color, detail level, city, and artist tier.';
 
@@ -20,7 +20,8 @@ export const metadata = {
     'tattoo pricing guide',
     'average tattoo cost',
     'small tattoo cost',
-    'half sleeve tattoo cost'
+    'half sleeve tattoo cost',
+    'fine line tattoo cost'
   ],
   alternates: {
     canonical: '/'
@@ -53,9 +54,25 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteName,
+    url: siteUrl,
+    description: defaultDescription,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteUrl}/?query={search_term_string}`,
+      'query-input': 'required name=search_term_string'
+    }
+  };
+
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+        {children}
+      </body>
     </html>
   );
 }

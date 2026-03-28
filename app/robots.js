@@ -1,4 +1,4 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tatcost.online';
 
 export default function robots() {
   return {
@@ -6,6 +6,7 @@ export default function robots() {
       userAgent: '*',
       allow: '/'
     },
-    sitemap: `${siteUrl}/sitemap.xml`
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl
   };
 }
