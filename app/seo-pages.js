@@ -165,6 +165,171 @@ export const seoPages = [
         answer: 'No. Many simple tattoos are quoted flat, while larger custom work is often estimated by hourly range or session count.'
       }
     ]
+  },
+  {
+    slug: 'color-tattoo-cost',
+    title: 'Color Tattoo Cost Guide + Estimate',
+    description:
+      'Estimate color tattoo cost and learn how saturation, palette complexity, size, and artist experience affect the final tattoo quote.',
+    h1: 'How Much Does a Color Tattoo Cost?',
+    intro:
+      'Color tattoo cost is usually higher than black ink pricing because color takes more setup, more passes, and often more time to heal cleanly. If you are comparing black ink versus color tattoo quotes, this guide breaks down why the gap exists and what actually moves the number.',
+    sections: [
+      {
+        title: 'Why color tattoos cost more',
+        body: 'Color work usually means extra setup, more layering, more saturation work, and more total time in the chair. That makes color tattoo pricing naturally higher than simple black-only work in many cases.'
+      },
+      {
+        title: 'What increases color tattoo cost fast',
+        body: 'Large coverage, realism, blended palettes, skin-tone transitions, and high detail all increase color tattoo cost quickly. Artist experience matters a lot when clean saturation is part of the goal.'
+      },
+      {
+        title: 'How to request a realistic color tattoo quote',
+        body: 'Send references, mention approximate size, explain whether you want bold traditional color or softer realism, and ask whether the artist expects one session or several.'
+      }
+    ],
+    faq: [
+      {
+        question: 'Are color tattoos always more expensive than black tattoos?',
+        answer: 'Usually yes, because color tattoos often need more setup, more layering, and longer execution time.'
+      },
+      {
+        question: 'Does color realism cost more than traditional color?',
+        answer: 'Often yes. Color realism usually needs more detail, smoother blending, and more total working time.'
+      }
+    ]
+  },
+  {
+    slug: 'hand-tattoo-cost',
+    title: 'Hand Tattoo Cost Guide + Quote Factors',
+    description:
+      'Find out how much a hand tattoo costs and why placement, fading risk, detail, and artist experience can push hand tattoo prices up.',
+    h1: 'How Much Does a Hand Tattoo Cost?',
+    intro:
+      'Hand tattoo cost tends to run higher than many people expect because hand placement is visible, technically demanding, and more prone to wear. If you are pricing finger tattoos, hand tattoos, or side-of-hand work, you need to account for more than size alone.',
+    sections: [
+      {
+        title: 'Why hand tattoos are harder to price',
+        body: 'Hand skin, movement, visibility, and wear all make execution trickier. Even a small hand tattoo can require more care than a similar tattoo on the forearm.'
+      },
+      {
+        title: 'What makes hand tattoo cost go up',
+        body: 'Fine detail, finger placement, symmetry, color, and artist reputation can all raise the quote. Some artists also price hands higher because touch-up expectations are different.'
+      },
+      {
+        title: 'What to ask before booking a hand tattoo',
+        body: 'Ask about healing expectations, fading risk, touch-up policy, and whether the artist regularly tattoos hands. This is not the place to optimize for the cheapest quote.'
+      }
+    ],
+    faq: [
+      {
+        question: 'Are hand tattoos more expensive?',
+        answer: 'Often yes. Hand tattoos can cost more because the placement is more difficult and more visible, even when the design is small.'
+      },
+      {
+        question: 'Do finger tattoos count as hand tattoo pricing?',
+        answer: 'Usually yes. Finger tattoos are often priced with similar placement difficulty and healing considerations in mind.'
+      }
+    ]
+  },
+  {
+    slug: 'rib-tattoo-cost',
+    title: 'Rib Tattoo Cost Guide + Price Estimate',
+    description:
+      'Estimate rib tattoo cost and understand how pain, placement difficulty, size, and style affect the final tattoo quote.',
+    h1: 'How Much Does a Rib Tattoo Cost?',
+    intro:
+      'Rib tattoo cost is usually higher than easier placements because ribs are awkward to work on, movement matters, and longer sessions can be more demanding for both client and artist. This guide explains why rib tattoo pricing often climbs faster than people expect.',
+    sections: [
+      {
+        title: 'Why rib tattoos are priced above simpler placements',
+        body: 'Rib placement usually takes more care than forearm or outer arm placement. Breathing, curvature, and comfort all affect how smoothly the tattoo session goes.'
+      },
+      {
+        title: 'What changes rib tattoo pricing',
+        body: 'Lettering, fine line work, large quotes, floral compositions, and color can all change the quote. The bigger the coverage and the more delicate the linework, the more the price usually moves upward.'
+      },
+      {
+        title: 'How to compare rib tattoo quotes',
+        body: 'Send the exact side and coverage area, say whether you want black ink or color, and ask the artist whether they expect one session or a larger project timeline.'
+      }
+    ],
+    faq: [
+      {
+        question: 'Are rib tattoos more expensive than forearm tattoos?',
+        answer: 'Often yes. Rib tattoos are usually harder to execute than forearm tattoos, which can make the quote higher.'
+      },
+      {
+        question: 'Does rib tattoo pain affect the price?',
+        answer: 'Pain itself is not the price factor, but the placement difficulty and slower working conditions can affect the quote.'
+      }
+    ]
+  },
+  {
+    slug: 'back-tattoo-cost',
+    title: 'Back Tattoo Cost Guide + Session Estimate',
+    description:
+      'Learn how much a back tattoo costs and how size, style, full-back coverage, color, and artist tier affect the total project price.',
+    h1: 'How Much Does a Back Tattoo Cost?',
+    intro:
+      'Back tattoo cost covers a huge range because a back tattoo can mean anything from a medium upper-back piece to a full-back multi-session project. This guide helps separate smaller back tattoo pricing from large-scale work that behaves more like a major commission.',
+    sections: [
+      {
+        title: 'Why back tattoo pricing ranges so widely',
+        body: 'The back offers a lot of canvas, which means both simple mid-size tattoos and huge custom projects fit in the same placement category. Coverage matters a lot here.'
+      },
+      {
+        title: 'When a back tattoo becomes a major project',
+        body: 'Once the design becomes large, wraps across the shoulders, or includes heavy shading and background fill, pricing usually shifts toward session planning instead of a simple one-time quote.'
+      },
+      {
+        title: 'How to request a back tattoo estimate',
+        body: 'Be specific about upper back, full back, spine-centered, or shoulder-blade placement, and mention whether the concept is simple blackwork, ornamental, realism, or full color.'
+      }
+    ],
+    faq: [
+      {
+        question: 'How much does a full back tattoo cost?',
+        answer: 'A full back tattoo is usually a major multi-session project, so pricing depends heavily on style, detail, color, and artist tier.'
+      },
+      {
+        question: 'Is an upper back tattoo cheaper than a full back piece?',
+        answer: 'Yes, usually by a lot. Coverage is one of the biggest pricing drivers for back tattoos.'
+      }
+    ]
+  },
+  {
+    slug: 'sleeve-tattoo-cost',
+    title: 'Sleeve Tattoo Cost Guide + Full Sleeve Pricing',
+    description:
+      'Understand sleeve tattoo cost, including full sleeve pricing, session count, black and grey vs color, and what drives the total quote up.',
+    h1: 'How Much Does a Sleeve Tattoo Cost?',
+    intro:
+      'Sleeve tattoo cost is one of the biggest tattoo pricing questions because sleeves are rarely simple one-session jobs. Full sleeve work usually means planning, multiple sessions, and a much wider range in pricing than smaller tattoos.',
+    sections: [
+      {
+        title: 'Why full sleeve tattoos cost so much',
+        body: 'A sleeve is built on coverage, composition, and time. Even when the art style looks simple, the amount of work involved usually pushes sleeve tattoo cost into major-project territory.'
+      },
+      {
+        title: 'Black and grey vs color sleeve pricing',
+        body: 'Color sleeves often cost more because saturation and layering take longer, but highly detailed black and grey realism can also become very expensive. Style matters as much as size.'
+      },
+      {
+        title: 'How to plan a sleeve tattoo budget',
+        body: 'Ask about session count, estimated hours, spacing between sessions, and whether the artist prefers to quote by session, by hour, or by full project range.'
+      }
+    ],
+    faq: [
+      {
+        question: 'How many sessions does a sleeve tattoo take?',
+        answer: 'A sleeve tattoo often takes multiple sessions, and full sleeves can require a long project timeline depending on style and coverage.'
+      },
+      {
+        question: 'Is a full sleeve much more expensive than a half sleeve?',
+        answer: 'Usually yes. More coverage, more design work, and more sessions push full sleeve pricing significantly higher.'
+      }
+    ]
   }
 ];
 
