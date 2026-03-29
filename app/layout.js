@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import './globals.css';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tatcost.online';
@@ -70,6 +71,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="NZjEnMe3ytItwIzNb8H5MA"
+          strategy="afterInteractive"
+        />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
         {children}
       </body>
