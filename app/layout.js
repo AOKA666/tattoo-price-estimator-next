@@ -1,7 +1,7 @@
 import Script from 'next/script';
 import './globals.css';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tatcost.online';
+const siteUrl = 'https://www.tatcost.online';
 const siteName = 'Tattoo Price Estimator';
 const defaultTitle = 'Tattoo Price Estimator | Free Tattoo Cost Calculator';
 const defaultDescription =

@@ -1,4 +1,4 @@
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.tatcost.online';
+export const siteUrl = 'https://www.tatcost.online';
 
 export const seoPages = [
   {
